@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TKD Mate | دستیار تمرین تکواندو</title>
+<meta name="description" content="ثبت تمرین تکواندو، گزارش پیشرفت و مشاوره هوش مصنوعی">
+<meta name="theme-color" content="#0f172a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="ambient a"></div><div class="ambient b"></div>
+
+<header class="topbar">
+  <a class="brand" href="#home">
+    <span class="brand-icon">🥋</span>
+    <span>TKD Mate<span class="brand-en"> / TAEKWONDO</span></span>
+  </a>
+  <div class="project-name"><strong>پروژه: TKD Mate</strong><small>دستیار هوشمند تمرین تکواندو</small></div>
+  <button class="menu-btn" id="menuBtn" aria-label="باز کردن منو">☰</button>
+  <nav id="nav">
+    <a href="#connect">اتصال هوش مصنوعی</a>
+    <a href="#log">ثبت تمرین</a>
+    <a href="#report">گزارش</a>
+    <a href="#about">درباره پروژه</a>
+  </nav>
+</header>
+
+<main id="home">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow"><i></i> قدرت، نظم، پیشرفت</span>
+    <h1>هر جلسه تمرین،<br><span>یک ضربه دقیق‌تر</span></h1>
+    <p>جلسه‌های تمرین تکواندوی خود را ثبت کنید، پیشرفت‌تان را ببینید و از دستیار هوشمند برای جلسه بعد ایده بگیرید.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#log">ثبت تمرین <span>←</span></a>
+      <a class="btn secondary" href="#report">مشاهده گزارش</a>
+    </div>
+    <div class="trustline"><span>✦</span> ثبت ساده · گزارش هوشمند · طراحی آموزشی</div>
+  </div>
+  <div class="hero-art" aria-label="نماد تکواندو">
+    <div class="ring ring1"></div><div class="ring ring2"></div>
+    <div class="tkd-figure">
+      <!-- نماد ساده هنرجوی تکواندو در حال ضربه -->
+      <svg viewBox="0 0 200 200" role="img" aria-label="هنرجوی تکواندو">
+        <defs><linearGradient id="bodyG" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#6366f1"/>
+        </linearGradient></defs>
+        <circle cx="100" cy="45" r="17" fill="url(#bodyG)"/>
+        <path d="M85 65 L115 65 L128 100 L120 105 L108 85 L108 130 L92 130 L92 85 L80 105 L72 100 Z" fill="url(#bodyG)"/>
+        <path d="M108 90 L155 55 L163 63 L116 100 Z" fill="url(#bodyG)"/>
+        <path d="M92 130 L80 185 L92 185 L104 138 Z" fill="#6366f1"/>
+        <path d="M108 130 L128 180 L140 174 L118 122 Z" fill="#38bdf8"/>
+      </svg>
+    </div>
+    <div class="float-card bpm"><span class="belt-icon">🥋</span><div><b>کمربندها</b><small>مسیر پیشرفت</small></div></div>
+    <div class="float-card reminder"><span class="pill-icon">⏱</span><div><b>ثبت دقیق</b><small>زمان و سختی</small></div></div>
+    <span class="spark s1">✦</span><span class="spark s2">✧</span>
+  </div>
+  <div class="hero-bottom">
+    <div><strong>۰۱</strong><span>ثبت جلسه</span></div>
+    <div><strong>۰۲</strong><span>گزارش پیشرفت</span></div>
+    <div><strong>۰۳</strong><span>مشاوره هوشمند</span></div>
+  </div>
+</section>
+
+<!-- CONNECT -->
+<section class="section" id="connect">
+  <div class="section-head">
+    <div><span class="kicker">شروع کار</span><h2>اتصال به هوش مصنوعی</h2>
+      <p>کلید API خودتان را وارد کنید تا دستیار بتواند پیشنهاد تمرینی بدهد.</p></div>
+    <span class="section-number">01 / CONNECT</span>
+  </div>
+  <div class="connect-grid">
+    <div class="panel connect-panel">
+      <div class="panel-title">
+        <span class="icon-box">⌘</span>
+        <div><h3>اتصال دستیار</h3><p>برای شروع، تنظیمات سرویس هوش مصنوعی را باز کنید.</p></div>
+        <span class="status" id="status">قطع</span>
+      </div>
+      <div class="api-intro">
+        <span class="api-lock">⌁</span>
+        <div><b>تنظیمات پیشرفته اتصال</b><small>کلید، آدرس سرویس و مدل در این قسمت قرار دارند.</small></div>
+      </div>
+      <details class="api-details">
+        <summary><span>تنظیمات API</span><span class="details-hint">باز کردن / بستن</span></summary>
+        <div class="api-fields">
+          <label for="apiKey">API Key</label>
+          <div class="key-row">
+            <input id="apiKey" type="password" placeholder="کلید API را وارد کنید" autocomplete="off">
+            <button id="toggleKey" class="icon-btn" type="button" aria-label="نمایش یا پنهان کردن کلید">◉</button>
+          </div>
+          <label for="baseUrl">آدرس پایه API</label>
+          <input id="baseUrl" type="url" value="https://api.metisai.ir/deepseek/v1" placeholder="https://...">
+          <label for="modelName">نام مدل</label>
+          <input id="modelName" type="text" value="deepseek-v4-flash" placeholder="نام مدل در پنل سرویس">
+          <div class="form-actions">
+            <button class="btn primary" id="saveApi">ذخیره تنظیمات</button>
+            <button class="btn secondary" id="clearApi">پاک کردن</button>
+          </div>
+          <p class="hint">کلید در مرورگر همین دستگاه ذخیره می‌شود و برای استفاده عمومی یا دستگاه مشترک مناسب نیست. آن را در فایل‌های GitHub قرار ندهید.</p>
+          <div id="connectionMsg" class="message" role="status"></div>
+        </div>
+      </details>
+    </div>
+    <div class="panel info-panel">
+      <div class="info-mark">🥋</div>
+      <span class="kicker">ایمنی و حریم خصوصی</span>
+      <h3>یک نکته مهم</h3>
+      <p>این پروژه آموزشی است. پاسخ‌های هوش مصنوعی ممکن است کلی یا اشتباه باشند؛ این برنامه جایگزین مربی یا متخصص سلامت نیست.</p>
+      <ul>
+        <li>پیش از تمرین‌های سخت، بدن را گرم کنید.</li>
+        <li>در صورت درد یا آسیب، با مربی و پزشک مشورت کنید.</li>
+        <li>از ثبت اطلاعات هویتی حساس خودداری کنید.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="belt-bridge" aria-label="نوار کمربند متحرک"><span>🥋</span><div class="belt-line"></div><span>🥋</span></div>
+
+<!-- LOG -->
+<section class="section" id="log">
+  <div class="section-head">
+    <div><span class="kicker">ثبت جلسه</span><h2>ثبت تمرین تکواندو</h2>
+      <p>مهارت، مدت و سختی جلسه را وارد کنید تا در گزارش ثبت شود.</p></div>
+    <span class="section-number">02 / LOG</span>
+  </div>
+  <div class="log-grid">
+    <form class="panel log-form" id="logForm">
+      <h3>جلسه تمرین جدید</h3>
+      <label for="skill">مهارت تمرین‌شده</label>
+      <input id="skill" type="text" maxlength="60" placeholder="مثلاً ضربه پا، فرم، اسپارینگ" required>
+      <label for="duration">مدت تمرین (دقیقه)</label>
+      <input id="duration" type="number" min="1" max="600" placeholder="۳۰" required>
+      <label for="difficulty">سختی جلسه (۱ تا ۵)</label>
+      <input id="difficulty" type="number" min="1" max="5" placeholder="۳" required>
+      <div class="form-actions">
+        <button class="btn primary" type="submit">＋ ثبت جلسه</button>
+        <button class="btn secondary" type="reset">پاک‌کردن فرم</button>
+      </div>
+      <div id="logMsg" class="message" role="status"></div>
+    </form>
+    <aside class="panel tips-panel">
+      <span class="kicker">راهنمای ثبت</span>
+      <h3>جلسه بهتر ثبت کنیم</h3>
+      <div class="tip"><b>۱</b><p>نام دقیق مهارت را بنویسید؛ مثلاً «ضربه راندهاوس راست».</p></div>
+      <div class="tip"><b>۲</b><p>زمان گرم‌کردن را جدا از تمرین اصلی حساب کنید.</p></div>
+      <div class="tip"><b>۳</b><p>سختی را صادقانه ثبت کنید تا گزارش واقعی باشد.</p></div>
+      <div class="mini-note">✦ همه اطلاعات فقط در همین مرورگر ذخیره می‌شود.</div>
+    </aside>
+  </div>
+</section>
+
+<!-- REPORT -->
+<section class="section" id="report">
+  <div class="section-head">
+    <div><span class="kicker">پیشرفت</span><h2>گزارش تمرین‌ها</h2>
+      <p>خلاصه جلسه‌ها و پرسش از دستیار بر اساس همین خلاصه.</p></div>
+    <span class="section-number">03 / REPORT</span>
+  </div>
+
+  <div class="stats-grid" id="statsGrid">
+    <div class="stat-card"><span>📋</span><b id="statCount">۰</b><small>جلسه</small></div>
+    <div class="stat-card"><span>⏱</span><b id="statTime">۰</b><small>دقیقه</small></div>
+    <div class="stat-card"><span>🔥</span><b id="statAvg">۰</b><small>میانگین سختی</small></div>
+  </div>
+
+  <div class="report-layout">
+    <div class="panel table-panel">
+      <div class="schedule-top">
+        <div><h3>جلسه‌های ثبت‌شده</h3><p>آخرین جلسه‌ها در بالای جدول.</p></div>
+        <button class="text-btn" id="clearLogs">پاک‌کردن همه</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>مهارت</th><th>زمان</th><th>سختی</th><th>تاریخ ثبت</th><th>عملیات</th></tr></thead>
+          <tbody id="logRows"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel ai-panel">
+      <div class="chat-head">
+        <div class="bot-avatar">🥋</div>
+        <div><h3>مربی هوشمند TKD Mate</h3><span><i class="live-dot"></i> آماده</span></div>
+        <button class="text-btn" id="clearChat">گفت‌وگوی تازه ↺</button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="bubble assistant"><small>دستیار TKD Mate</small>سلام قهرمان! جلسه‌هایت را ثبت کن و از من بپرس برای تمرین بعدی روی چه چیزی تمرکز کنی. من خلاصه تمرین‌هایت را خودم همراه سؤالت می‌فرستم.</div>
+      </div>
+      <div class="suggestions">
+        <button class="suggestion">روی چه مهارتی تمرکز کنم؟</button>
+        <button class="suggestion">برنامه گرم‌کردن پیشنهاد بده</button>
+        <button class="suggestion">چطور سختی تمرین را بالا ببرم؟</button>
+      </div>
+      <form id="chatForm" class="chat-form">
+        <textarea id="question" rows="2" placeholder="سؤالت را درباره تمرین بعدی بنویس…" required></textarea>
+        <button class="send-btn" id="sendBtn" type="submit" aria-label="ارسال">↑</button>
+      </form>
+      <div class="chat-foot">پاسخ‌ها جایگزین نظر مربی یا متخصص نیستند.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about-section" id="about">
+  <div class="section-head">
+    <div><span class="kicker">درباره ایده</span><h2>قدرت در نظم</h2></div>
+    <span class="section-number">04 / ABOUT</span>
+  </div>
+  <div class="about-grid">
+    <article class="about-card"><span>🎯</span><h3>مشکل</h3><p>هنرجویان اغلب جلسه‌های تمرین را به‌خاطر نمی‌سپارند و پیشرفتشان را نمی‌بینند.</p></article>
+    <article class="about-card"><span>📊</span><h3>راهکار</h3><p>ثبت سریع جلسه‌ها، گزارش ساده و مشاوره هوشمند بر اساس همین داده‌ها.</p></article>
+    <article class="about-card"><span>⚙️</span><h3>فناوری</h3><p>HTML، CSS و JavaScript با اتصال به API سازگار با OpenAI. نسخه پایتون هم موجود است.</p></article>
+  </div>
+  <div class="safety-banner">
+    <span>!</span>
+    <p><b>یادآوری ایمنی:</b> این ابزار تشخیص پزشکی نمی‌دهد. در صورت درد یا آسیب، با مربی و متخصص سلامت مشورت کنید.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-heart">🥋</div>
+  <div><strong>TKD Mate — دستیار تمرین تکواندو</strong><p>پروژه آموزشی · طراحی فارسی و واکنش‌گرا</p></div>
+  <a href="#home" class="back-top">بازگشت به بالا ↑</a>
+</footer>
+
+<script src="script.js"></script>
+</body></html>
