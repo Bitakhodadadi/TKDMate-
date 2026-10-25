@@ -24,6 +24,7 @@ body{
 }
 a{color:inherit;text-decoration:none}
 button,input,textarea,select{font:inherit}
+img{max-width:100%;display:block}
 
 /* ---------- paint background ---------- */
 .paint-bg{position:fixed;inset:0;z-index:-3;overflow:hidden;pointer-events:none}
@@ -51,23 +52,22 @@ button,input,textarea,select{font:inherit}
   background:#05070de6;backdrop-filter:blur(20px);
   border-bottom:1px solid var(--line);
   min-height:74px;padding:10px max(22px,calc((100% - 1200px)/2));
-  display:flex;align-items:center;gap:24px;
+  display:flex;align-items:center;gap:24px;flex-wrap:wrap;
 }
 .brand{display:flex;align-items:center;gap:9px;font-size:19px;font-weight:900;white-space:nowrap}
 .brand-icon{
-  display:grid;place-items:center;width:40px;height:40px;
+  width:40px;height:40px;flex:0 0 auto;object-fit:contain;padding:6px;
   background:linear-gradient(145deg,#1b3fa8,#2f6bff);
-  border-radius:13px;font-size:22px;padding:6px;
-  object-fit:contain;
+  border-radius:13px;
   box-shadow:0 0 22px #2f6bff66;
   animation:kick 2.4s infinite;
 }
 .brand-en{font-size:10px;letter-spacing:1.4px;color:#5f7ba0;font-weight:700;direction:ltr}
-.project-name{display:flex;flex-direction:column;line-height:1.5;gap:2px}
+.project-name{display:flex;flex-direction:column;line-height:1.5;gap:2px;min-width:0}
 .project-name strong{font-size:13px;color:#d6e6ff}
-.project-name small{font-size:10px;font-weight:700;color:#6f8bb0;white-space:nowrap}
+.project-name small{font-size:10px;font-weight:700;color:#6f8bb0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 nav{margin-right:auto;display:flex;gap:20px;font-size:12px;font-weight:700;color:#8fa3c0}
-nav a{position:relative;padding:6px 0;transition:color .2s}
+nav a{position:relative;padding:6px 0;transition:color .2s;white-space:nowrap}
 nav a:hover{color:var(--cyan)}
 nav a:hover:after{width:100%}
 nav a:after{
@@ -75,21 +75,21 @@ nav a:after{
   background:linear-gradient(90deg,var(--blue),var(--cyan));
   transition:width .25s;border-radius:2px;
 }
-.menu-btn{display:none;border:0;background:#122040;border-radius:10px;padding:8px 12px;color:var(--cyan);cursor:pointer}
+.menu-btn{display:none;border:0;background:#122040;border-radius:10px;padding:8px 12px;color:var(--cyan);cursor:pointer;font-size:18px;line-height:1}
 
-main{max-width:1200px;margin:auto;padding:0 24px}
+main{max-width:1200px;margin:auto;padding:0 24px;width:100%}
 
 /* ---------- hero ---------- */
 .hero{
   position:relative;display:grid;grid-template-columns:1.05fr .95fr;
   align-items:center;min-height:620px;padding:70px 0 40px;column-gap:30px;
 }
-.hero-copy{position:relative;z-index:2}
+.hero-copy{position:relative;z-index:2;min-width:0}
 .eyebrow,.kicker{
   color:var(--cyan);font-weight:800;font-size:12px;letter-spacing:.3px;
 }
 .eyebrow{
-  display:inline-flex;align-items:center;gap:9px;
+  display:inline-flex;align-items:center;gap:9px;flex-wrap:wrap;
   background:#0c1c3a;border:1px solid #1e3a6a;border-radius:30px;padding:7px 14px;
 }
 .eyebrow i,.live-dot{
@@ -98,7 +98,7 @@ main{max-width:1200px;margin:auto;padding:0 24px}
   animation:blink 1.6s infinite;
 }
 .hero h1{
-  font-size:clamp(38px,4.4vw,60px);line-height:1.35;letter-spacing:-1.7px;
+  font-size:clamp(32px,4.4vw,60px);line-height:1.35;letter-spacing:-1.2px;
   margin:22px 0 12px;font-weight:900;
 }
 .grad{
@@ -128,8 +128,8 @@ main{max-width:1200px;margin:auto;padding:0 24px}
 .trustline{margin-top:26px;color:#6f8bb0;font-size:11px}
 .trustline span{color:var(--red);font-size:16px;margin-left:5px}
 
-/* ---------- hero art ---------- */
-.hero-art{position:relative;height:480px;display:grid;place-items:center;isolation:isolate}
+/* ---------- hero art (بدون عکس) ---------- */
+.hero-art{position:relative;height:480px;display:grid;place-items:center;isolation:isolate;min-width:0}
 .ring{
   position:absolute;border-radius:50%;border:1px solid #1e3a6a;
   animation:rotate 26s linear infinite;
@@ -144,30 +144,26 @@ main{max-width:1200px;margin:auto;padding:0 24px}
 .ring:before{top:14px;right:44px}
 .ring:after{bottom:34px;left:20px;background:var(--red);box-shadow:0 0 12px var(--red)}
 
-.hero-stage{
-  position:relative;width:400px;height:400px;
-  display:grid;place-items:center;
+.hero-emblem{
+  position:relative;z-index:2;
+  width:210px;height:210px;border-radius:50%;
+  display:grid;place-items:center;gap:0;
+  background:radial-gradient(circle at 35% 30%,#1b3fa8,#0a1730 70%);
+  border:1px solid #1e3a6a;
+  box-shadow:0 0 60px #2f6bff55,inset 0 0 40px #00000066;
+  animation:cardfloat 5s ease-in-out infinite;
 }
-
-/* --- fighter image (tkd6.jpg) replaces the video --- */
-.hero-fighter{
-  max-width:62%;
-  max-height:78%;
-  object-fit:contain;
-  filter:drop-shadow(0 24px 34px #000000cc);
-  /* removes dark/black background by blending it away on the dark page */
-  mix-blend-mode:screen;
-  /* soft fade of any remaining edges */
-  -webkit-mask-image:radial-gradient(circle at 50% 50%,#000 62%,transparent 88%);
-          mask-image:radial-gradient(circle at 50% 50%,#000 62%,transparent 88%);
-  animation:fighter1 7s ease-in-out infinite;
+.emblem-emoji{font-size:74px;line-height:1;filter:drop-shadow(0 10px 20px #00000088)}
+.emblem-text{
+  font-size:12px;font-weight:900;letter-spacing:6px;color:var(--cyan);
+  direction:ltr;margin-top:6px;
 }
 
 .float-badge{
   position:absolute;display:flex;align-items:center;gap:10px;
   background:#0d172b;border:1px solid #1e3358;border-radius:16px;
   padding:12px 15px;box-shadow:0 16px 40px #00000088;
-  animation:cardfloat 4.5s ease-in-out infinite;
+  animation:cardfloat 4.5s ease-in-out infinite;z-index:3;
 }
 .float-badge b,.float-badge small{display:block}
 .float-badge b{font-size:11px;color:#e8f1ff}
@@ -208,11 +204,11 @@ main{max-width:1200px;margin:auto;padding:0 24px}
 /* ---------- connect ---------- */
 .connect-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
 .connect-panel{padding:26px}
-.panel-title{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.panel-title{display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap}
 .panel-title h3,.chat-head h3,.schedule-top h3,.info-panel h3,.tips-panel h3{margin:0;font-size:16px;color:#eaf2ff}
 .panel-title p,.schedule-top p{margin:2px 0 0;font-size:11px;color:#6f8bb0}
 .icon-box{
-  width:46px;height:46px;border-radius:14px;
+  width:46px;height:46px;flex:0 0 auto;border-radius:14px;
   background:linear-gradient(145deg,#1b3fa8,#2f6bff);
   display:grid;place-items:center;color:#fff;font-size:22px;
   box-shadow:0 0 22px #2f6bff55;
@@ -224,7 +220,7 @@ main{max-width:1200px;margin:auto;padding:0 24px}
   display:flex;gap:12px;align-items:center;
   background:#0a1730;border:1px solid #1a3358;border-radius:14px;padding:14px;margin:16px 0;
 }
-.api-lock{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;background:#0f2247;color:var(--cyan);font-size:24px}
+.api-lock{width:40px;height:40px;flex:0 0 auto;display:grid;place-items:center;border-radius:12px;background:#0f2247;color:var(--cyan);font-size:24px}
 .api-intro b,.api-intro small{display:block}
 .api-intro b{font-size:13px;color:#d6e6ff}
 .api-intro small{font-size:10px;color:#6f8bb0;margin-top:2px}
@@ -247,8 +243,4 @@ main{max-width:1200px;margin:auto;padding:0 24px}
 label{display:block;font-size:12px;font-weight:800;margin:12px 0 6px;color:#aac3e8}
 input,textarea,select{
   width:100%;border:1px solid #1a3358;background:#070d1a;color:var(--ink);
-  border-radius:12px;padding:12px 13px;outline:none;font-size:13px;
-  transition:border .2s,box-shadow .2s,background .2s;
-}
-input:focus,textarea:focus,select:focus{border-color:#2f6bff;box-shadow:0 0 0 3px #2f6bff22;background:#0a1224}
-input::
+  border-radius:12px;padding:12px 13px;outline:none
